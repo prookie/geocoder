@@ -67,7 +67,7 @@ module Geocoder::Lookup
         :sensor => "false",
         :language => (query.language || configuration.language)
       }
-      unless (bounds = query.options[:bounds]).nil?
+      unless (bounds = query.options[:bounds] || configuration.bounds).nil?
         params[:bounds] = bounds.map{ |point| "%f,%f" % point }.join('|')
       end
       unless (region = query.options[:region]).nil?
