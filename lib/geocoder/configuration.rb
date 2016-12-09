@@ -66,7 +66,8 @@ module Geocoder
       :distances,
       :basic_auth,
       :logger,
-      :kernel_logger_level
+      :kernel_logger_level,
+      :bounds
     ]
 
     attr_accessor :data
@@ -110,6 +111,7 @@ module Geocoder
       @data[:basic_auth]   = {}          # user and password for basic auth ({:user => "user", :password => "password"})
       @data[:logger]       = :kernel     # :kernel or Logger instance
       @data[:kernel_logger_level] = ::Logger::WARN # log level, if kernel logger is used
+      @data[:bounds] = nil               # no default viewport biasing for google service
 
       # exceptions that should not be rescued by default
       # (if you want to implement custom error handling);
